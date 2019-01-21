@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { List, Icon } from "antd";
+import { List } from "antd";
 import IconText from "./IconText";
 const { Item } = List;
 

@@ -17,6 +17,7 @@ class Sidebar extends Component {
                     trigger={null}
                     collapsible
                     collapsed={this.state.collapsed}
+                    width={350}
                 >
                     <h1>Sidebar</h1>
                 </Sider>
