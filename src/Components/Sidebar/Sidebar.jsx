@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Layout } from "antd";
+import Menu from "./Menu";
+import Logo from "../../images/logo.png";
 
 const { Sider } = Layout;
 
@@ -17,9 +19,12 @@ class Sidebar extends Component {
                     trigger={null}
                     collapsible
                     collapsed={this.state.collapsed}
-                    width={350}
+                    className="left-panel"
                 >
-                    <h1>Sidebar</h1>
+                    <div className="logo">
+                        <img src={Logo} alt="Everything is here" />
+                    </div>
+                    <Menu />
                 </Sider>
             </React.Fragment>
         );
