@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Layout } from "antd";
-import Sidebar from "./Sidebar/Sidebar";
-import Content from "./Content/Content";
+import Sidebar from "./Sidebar";
+import Content from "./Content";
 
 class SiteRoot extends Component {
     render() {

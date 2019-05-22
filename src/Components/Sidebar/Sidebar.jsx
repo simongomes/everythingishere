@@ -14,7 +14,8 @@ class Sidebar extends Component {
     }
     render() {
         return (
-            <React.Fragment>
+            <>
+                `
                 <Sider
                     trigger={null}
                     collapsible
@@ -26,7 +27,7 @@ class Sidebar extends Component {
                     </div>
                     <Menu />
                 </Sider>
-            </React.Fragment>
+            </>
         );
     }
 }
