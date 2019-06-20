@@ -1,5 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './store';
+import { addStory } from './actions/index';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+window.store = store;
+window.addStory = addStory;
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
