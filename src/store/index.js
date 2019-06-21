@@ -25,13 +25,16 @@ const initialState = {
         'Ant Design, a design language for background applications, is refined by Ant UED Team'
     }
   ],
-  active_channel: 'hacker-news'
+  channel: 'hacker-news',
 };
 
 const store = createStore(
   rootReducer,
   initialState,
-  storeEnhancers(applyMiddleware(...middlewares))
+  storeEnhancers(
+    applyMiddleware(...middlewares),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
 export default store;
