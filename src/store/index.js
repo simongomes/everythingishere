@@ -7,25 +7,8 @@ const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENTION_COMPOSE__ || compose;
 const middlewares = [thunk];
 
 const initialState = {
-  stories: [
-    {
-      title:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team'
-    },
-    {
-      title:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team'
-    },
-    {
-      title:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team'
-    },
-    {
-      title:
-        'Ant Design, a design language for background applications, is refined by Ant UED Team'
-    }
-  ],
-  channel: 'hacker-news',
+  stories: [],
+  channel: 'all'
 };
 
 const store = createStore(

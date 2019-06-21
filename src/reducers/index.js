@@ -7,7 +7,7 @@ function rootReducer(state, action) {
       return Object.assign({}, state, { stories: state.stories });
     case ADD_STORY:
       return Object.assign({}, state, {
-        stories: state.stories.concat(action.payload)
+        stories: state.stories.concat(action.story)
       });
     default:
       return state;
