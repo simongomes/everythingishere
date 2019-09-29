@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { List } from 'antd';
 import { connect } from 'react-redux';
 import Story from './Story';
-import { setInitialStories } from './../../../actions/index';
+import { setInitialStories } from '../../../actions/index';
 
 class StoryList extends Component {
   constructor(props) {
@@ -15,7 +15,9 @@ class StoryList extends Component {
         className="story-list"
         itemLayout="vertical"
         dataSource={this.props.stories}
-        renderItem={story => <Story story={story}> </Story>}
+        renderItem={story => (
+          <Story story={story} channel={this.props.channel}></Story>
+        )}
       />
     );
   }
@@ -36,7 +38,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    stories: state.stories
+    stories: state.stories,
+    channel: state.channel
   };
 };
 

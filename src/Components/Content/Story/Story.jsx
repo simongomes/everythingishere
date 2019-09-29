@@ -1,25 +1,25 @@
-import React, { Component } from "react";
-import { List } from "antd";
-import IconText from "./IconText";
+import React, { Component } from 'react';
+import { List } from 'antd';
+import IconText from './IconText';
 const { Item } = List;
 
 class Story extends Component {
-    render() {
-        const { title } = this.props.story;
-        return (
-            <Item
-                className="story-item"
-                key={title}
-                actions={[
-                    <IconText type="link" text="Hacker News" />,
-                    <IconText type="star" text="10 pts" />,
-                    <IconText type="user" text="Simon Gomes" />,
-                    <IconText type="message" text="112" />
-                ]}
-            >
-                <Item.Meta className="story-meta" title={title} />
-            </Item>
-        );
-    }
+  render() {
+    const { by, score, title, kids } = this.props.story;
+    return (
+      <Item
+        className="story-item"
+        key={title}
+        actions={[
+          <IconText type="link" text={this.props.channel} />,
+          <IconText type="star" text={score + ' pts'} />,
+          <IconText type="user" text={by} />,
+          <IconText type="message" text={kids ? kids.length : 0} />
+        ]}
+      >
+        <Item.Meta className="story-meta" title={title} />
+      </Item>
+    );
+  }
 }
 export default Story;

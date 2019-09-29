@@ -3,10 +3,12 @@ import { getNews, getTopNewsIDs } from '../apis/hackerNewsApis';
 
 export const setInitialStories = () => dispatch => {
   return getTopNewsIDs().then(storyIDs => {
-    storyIDs.slice(0, 9).map(id =>
-      getNews(id).then(story => {
-        dispatch({ type: ADD_STORY, story });
-      })
+    return Promise.all(
+      storyIDs.slice(0, 20).map(id =>
+        getNews(id).then(story => {
+          dispatch({ type: ADD_STORY, story });
+        })
+      )
     );
   });
 };
