@@ -1,21 +1,18 @@
-import { ADD_STORY } from './actionTypes';
-import { getNews, getTopNewsIDs } from '../apis/hackerNewsApis';
+import { ADD_STORY, INITIAL_STORIES } from "./actionTypes";
+// import { getNews, getTopNewsIDs } from "../apis/hackerNewsApis";
+import { getAllStories } from "../apis/stories";
 
 export const setInitialStories = () => dispatch => {
-  return getTopNewsIDs().then(storyIDs => {
-    return Promise.all(
-      storyIDs.slice(0, 20).map(id =>
-        getNews(id).then(story => {
-          dispatch({ type: ADD_STORY, story });
-        })
-      )
-    );
-  });
+    return getAllStories(
+        "hn,reddit,ph,slashdot,dn,github,medium,lifehacker"
+    ).then(stories => {
+        dispatch({ type: INITIAL_STORIES, stories });
+    });
 };
 
 export const addStory = story => dispatch => {
-  dispatch({
-    type: ADD_STORY,
-    story
-  });
+    dispatch({
+        type: ADD_STORY,
+        story
+    });
 };
