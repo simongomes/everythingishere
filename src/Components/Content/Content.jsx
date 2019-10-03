@@ -1,25 +1,38 @@
-import React, { Component } from "react";
-import { Layout, Row, Col } from "antd";
-import StoryList from "./Story/StoryList";
+import React, { Component } from 'react';
+import { Layout, Row, Col } from 'antd';
+import StoryList from './Story/StoryList';
+import { connect } from 'react-redux';
 
 class Content extends Component {
-    render() {
-        return (
-            <React.Fragment>
-                <Layout.Content className="right-panel">
-                    <div className="content-wrap">
-                        <Row>
-                            <Col span={24}>
-                                <div className="header">
-                                    <h1 className="origin">Everything</h1>
-                                    <StoryList />
-                                </div>
-                            </Col>
-                        </Row>
-                    </div>
-                </Layout.Content>
-            </React.Fragment>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      channel: 'Everything'
+    };
+  }
+  render() {
+    return (
+      <React.Fragment>
+        <Layout.Content className="right-panel">
+          <div className="content-wrap">
+            <Row>
+              <Col span={24}>
+                <div className="header">
+                  <h1 className="origin">{this.props.channel}</h1>
+                  <StoryList />
+                </div>
+              </Col>
+            </Row>
+          </div>
+        </Layout.Content>
+      </React.Fragment>
+    );
+  }
 }
-export default Content;
+
+const mapStateToProps = state => {
+  return {
+    channel: state.channel
+  };
+};
+export default connect(mapStateToProps)(Content);
