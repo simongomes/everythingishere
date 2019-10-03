@@ -1,2 +1,3 @@
-export const INITIAL_STORIES = 'INITIAL_STORIES';
-export const ADD_STORY = 'ADD_STORY';
+export const INITIAL_STORIES = "INITIAL_STORIES";
+export const UPDATE_STORIES = "UPDATE_STORIES";
+export const ADD_STORY = "ADD_STORY";

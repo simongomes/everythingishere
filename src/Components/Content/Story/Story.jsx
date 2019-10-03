@@ -5,7 +5,6 @@ const { Item } = List;
 
 class Story extends Component {
     render() {
-        console.log(this.props.story);
         const { story } = this.props;
         const {
             author,
@@ -26,7 +25,7 @@ class Story extends Component {
         if (one_sources !== undefined) {
             switch (one_sources[0]) {
                 case "hn":
-                    channel = "hacker News";
+                    channel = "Hacker News";
                     break;
                 case "reddit":
                     channel = "Reddit";
@@ -56,6 +55,12 @@ class Story extends Component {
         }
         if (author !== undefined) {
             actions.push(<IconText type="user" text={author} />);
+        }
+        if (score !== undefined) {
+            actions.push(<IconText type="star" text={score + " pts"} />);
+        }
+        if (comments !== undefined && comments > 0) {
+            actions.push(<IconText type="message" text={comments} />);
         }
         return (
             <a href={story.url} target="__blank">

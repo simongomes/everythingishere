@@ -24,16 +24,24 @@ class Menu extends Component {
                     source: "medium"
                 },
                 {
+                    title: "Reddit",
+                    source: "reddit"
+                },
+                {
                     title: "Product Hunt",
                     source: "ph"
                 },
                 {
                     title: "Github Trending",
-                    source: "gt"
+                    source: "github"
                 },
                 {
-                    title: "Reddit",
-                    source: "reddit"
+                    title: "Designer News",
+                    source: "dn"
+                },
+                {
+                    title: "Slashdot",
+                    source: "slashdot"
                 },
                 {
                     title: "Lifehacker",

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { List } from "antd";
 import { connect } from "react-redux";
 import Story from "./Story";
-import { setInitialStories } from "../../../actions/index";
+import { setInitialStories } from "../../../actions";
 
 class StoryList extends Component {
     constructor(props) {
@@ -11,7 +11,6 @@ class StoryList extends Component {
     }
     render() {
         return (
-            // <h1>In Progress</h1>
             <List
                 className="story-list"
                 itemLayout="vertical"
