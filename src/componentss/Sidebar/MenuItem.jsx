@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { List, Divider } from 'antd';
 import { connect } from 'react-redux';
-import { updateStories, updateChannel } from '../../actions';
+import { updateStories, updateChannel, setInitialStories } from '../../actions';
 
 const { Item } = List;
 
@@ -30,13 +30,20 @@ class MenuItem extends Component {
   }
 
   updateStories(channel) {
-    this.props.updateStories(channel);
-    this.props.updateChannel(channel);
+    if (channel === 'everything') {
+      this.props.setInitialStories();
+    } else {
+      this.props.updateStories(channel);
+      this.props.updateChannel(channel);
+    }
   }
 }
 // Redux Mapping
 const mapDispatchToProps = dispatch => {
   return {
+    setInitialStories: () => {
+      dispatch(setInitialStories());
+    },
     updateStories: channel => {
       dispatch(updateStories(channel));
     },

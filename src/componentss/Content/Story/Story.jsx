@@ -86,17 +86,7 @@ class Story extends Component {
     }
     return (
       <a href={story.url} target="__blank">
-        <Item
-          className="story-item"
-          key={title}
-          actions={actions}
-          // actions={[
-          //     <IconText type="link" text={story.one_sources[0]} />,
-          //     <IconText type="star" text={score + " pts"} />,
-          //     <IconText type="user" text={by} />,
-          //     <IconText type="message" text={kids ? kids.length : 0} />
-          // ]}
-        >
+        <Item className="story-item" key={title} actions={actions}>
           <Item.Meta className="story-meta" title={story.title} />
         </Item>
       </a>

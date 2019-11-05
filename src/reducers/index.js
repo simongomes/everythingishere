@@ -8,7 +8,7 @@ import {
 function rootReducer(state, action) {
   switch (action.type) {
     case INITIAL_STORIES:
-      return Object.assign({}, state, { stories: action.stories });
+      return Object.assign({}, state, { stories: action.stories, channel: 'Everything' });
     case UPDATE_STORIES:
       return Object.assign({}, state, { stories: action.stories });
     case ADD_STORY:
