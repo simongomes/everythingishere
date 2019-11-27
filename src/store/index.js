@@ -13,7 +13,7 @@ const initialState = {
 
 let store = null;
 
-process.env.NODE_ENV !== "production"
+process.env.NODE_ENV === "production"
   ? (store = createStore(
       rootReducer,
       initialState,
