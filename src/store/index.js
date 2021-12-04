@@ -8,7 +8,7 @@ const middlewares = [thunk];
 
 const initialState = {
   stories: [],
-  channel: "Everything"
+  channel: "Everything",
 };
 
 let store = null;
@@ -22,11 +22,23 @@ process.env.NODE_ENV === "production"
   : (store = createStore(
       rootReducer,
       initialState,
-      storeEnhancers(
-        applyMiddleware(...middlewares),
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-          window.__REDUX_DEVTOOLS_EXTENSION__()
-      )
+      storeEnhancers(applyMiddleware(...middlewares))
     ));
+
+// process.env.NODE_ENV === "production"
+//   ? (store = createStore(
+//       rootReducer,
+//       initialState,
+//       storeEnhancers(applyMiddleware(...middlewares))
+//     ))
+//   : (store = createStore(
+//       rootReducer,
+//       initialState,
+//       storeEnhancers(
+//         applyMiddleware(...middlewares),
+//         window.__REDUX_DEVTOOLS_EXTENSION__ &&
+//           window.__REDUX_DEVTOOLS_EXTENSION__()
+//       )
+//     ));
 
 export default store;
